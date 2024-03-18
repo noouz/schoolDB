@@ -23,6 +23,7 @@ export default{
     <section class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg px-5 py-8">
+          
           <Link href="/add-course" class="py-2 px-4 bg-green-500 hover:bg-green-400 text-white rounded-md"> 新增</Link>
 
           <!-- 記得傳給子元件 :response -->

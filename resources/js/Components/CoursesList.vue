@@ -9,6 +9,26 @@ export default{
       type:Object,
     }
   },
+  // data(){
+  //   return{
+  //   }
+  // },
+  methods:{
+    deleteCourse(id){
+      //路由，程式內容，詳細設定
+      this.$inertia.post('/delete-course',{id:id,},{
+        //如果成功回傳..do...
+        onSuccess:(res)=>{
+          const msg = res.props.flash.message;
+          alert(`刪除課程${msg}`)
+        }
+      })
+    },
+    editCourse(id){
+      //路由，程式內容，詳細設定
+      this.$inertia.get('/edit-course',{editId:id,})
+    },
+  },
 }
 </script>
 
@@ -23,16 +43,16 @@ export default{
       </tr>
     </thead>
     <tbody>
-      <tr v-for="course in coursesData">
-        <th class="w-1/12">{{course.id}}</th>
+      <tr v-for="(course,index) in coursesData" :key="index">
+        <th class="w-1/12">{{index +1}}</th>
         <td class="w-3/12">{{course.course_name}}</td>
         <td class="w-5/12">
           <img src="https://placehold.jp/300x150.png" class="m-auto" alt="課程照片">
         </td>
         <td class="w-3/12">
           <div class="btns">
-            <Link href="/course/edit" class="edit-btn">編輯</Link>
-            <div class="delete-btn">刪除</div>
+            <Link href="/edit-course" class="edit-btn" @click="editCourse(course.id)">編輯</Link>
+            <div class="delete-btn" @click="deleteCourse(course.id)">刪除</div>
           </div>
         </td>
       </tr>

@@ -56,7 +56,7 @@ export default{
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg px-5 py-8">
 
-          <form action="">
+          <form >
             <label for="courseName">課程名稱</label>
             <input type="text" name="courseName" id="courseName" v-model="course">
 
@@ -72,7 +72,7 @@ export default{
 
             <div class="flex w-full justify-end gap-x-3">
               <Link href="/course" class="py-2 px-4 bg-gray-500 hover:bg-gray-400 text-white rounded-md"> 返回列表</Link>
-              <button type="submit" class="py-2 px-4 bg-blue-500 hover:bg-blue-400 text-white rounded-md" @click="addCourse()">儲存</button>
+              <button type="button" class="py-2 px-4 bg-blue-500 hover:bg-blue-400 text-white rounded-md" @click="addCourse()">儲存</button>
             </div>
           </form>
 

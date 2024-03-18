@@ -38,13 +38,12 @@ Route::middleware(['auth', 'verified'])->group(function(){
     //新增課程頁面
     Route::get('/add-course',[CourseController::class,'addPage']);
     Route::post('/post-course',[CourseController::class,'add']);
-})
-
-->middleware(['auth', 'verified']);
-//新增課程頁面
-Route::get('/course/add',[CourseController::class,'add'])->middleware(['auth', 'verified']);
-//編輯課程頁面
-Route::get('/course/edit',[CourseController::class,'edit'])->middleware(['auth', 'verified']);
+    //編輯課程頁面
+    Route::get('/edit-course',[CourseController::class,'editPage']);
+    Route::post('/post-edit',[CourseController::class,'updateCourse']);
+    //刪除
+    Route::post('/delete-course',[CourseController::class,'delete']);
+});
 
 //teachers教師列表頁面
 Route::get('/teacher',[TeachersController::class,'index'])->middleware(['auth', 'verified']);
